@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Percentage Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Percentage Calculator</h2>
+
+        <form method="POST">
+            <input type="number" step="any" name="obtained" placeholder="Obtained Marks" required>
+            <input type="number" step="any" name="total" placeholder="Total Marks" required>
+            <button type="submit">Calculate</button>
+            <button type="reset" class="reset">Reset</button>
+        </form>
+
+        {% if percentage is not none %}
+            <div class="result">
+                <h3>Percentage: {{ "%.2f"|format(percentage) }}%</h3>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
